@@ -1,0 +1,10 @@
+<GridLayout rows="*, auto" width="100%">
+    <StackLayout row="0">
+        <Label text="Simple Audio player with Slider " ></Label>
+    </StackLayout>
+    <StackLayout class="audio-layout" orientation="horizontal" height="90" row="1">
+        <ActivityIndicator  [visibility]="loading ? 'visible' : 'collapsed'" #activityIndicator busy="true"  width="50" height="50" class="activity-indicator"></ActivityIndicator>
+        <Button  visibility="{{ !loading ? 'visible' : 'collapsed' }}" [text]="isPlaying ? 'Pause': 'Play'" (tap)="playAudio()"  class="play"></Button>
+        <Slider #sw [value]="progress"  (valueChange)="onSliderValueChange($event)"  width="75%" (pan)="onTapSlider()" (tap)="onTapSlider()" (touch)="onTapSlider()"  maxValue="2"></Slider>
+    </StackLayout>
+</GridLayout  >
